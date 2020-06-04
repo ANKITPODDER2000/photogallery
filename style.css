@@ -1,0 +1,153 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body,html{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    background: #000;
+}
+body{
+    display: flex;
+    justify-content: center;
+}
+div.container{
+    margin-top: 15px;
+    position: relative;
+    width: 97%;
+    min-height: 95vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 33% 31% 31%;
+    grid-gap: 10px;
+    grid-template-areas: 
+        "box1 box2 box2 box3"
+        "box1 box4 box5 box3"
+        "box6 box6 box7 box7"
+    ;
+}
+div.container div.box{
+    position: relative;
+    overflow: hidden;
+    background: #000000;
+}
+div.container div.box img{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.5s;
+}
+div.container div.box .overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.8);
+    transition: 0.5s;
+    opacity: 0;
+    z-index: 9999;
+}
+
+
+div.container div.box.box1{
+    grid-area: box1;
+}
+div.container div.box.box2{
+    grid-area: box2;
+}
+div.container div.box.box3{
+    grid-area: box3;
+}
+div.container div.box.box4{
+    grid-area: box4;
+}
+div.container div.box.box5{
+    grid-area: box5;
+}
+div.container div.box.box6{
+    grid-area: box6;
+}
+div.container div.box.box7{
+    grid-area: box7;
+}
+
+div.container:hover .box .overlay{
+    opacity: 1;
+}
+div.container:hover .box img{
+    filter: hue-rotate(50deg) grayscale(0.8);
+}
+div.container .box .overlay:hover{
+    opacity: 0;
+}
+div.container .box .overlay:hover ~ img{
+    filter: none;
+}
+
+@media screen and (max-width:1017px){
+    div.container{
+        margin: 0 calc(2.5% - 0px);
+        margin-top: 40px;
+        margin-bottom: 50px;
+        position: relative;
+        width: 95%;
+        min-height: 1500px;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 300px 300px 300px 300px 300px;
+        grid-template-areas: 
+            "box1 box2"
+            "box1 box3"
+            "box4 box4" 
+            "box5 box5"
+            "box6 box7"
+        ;
+        grid-column-gap: 10px;
+        grid-row-gap: 10px;
+        padding-bottom: 30px;
+    }
+}
+@media screen and (max-width:700px){
+    div.container{
+        margin: 0 calc(5% - 0px);
+        margin-top: 30px;
+        margin-bottom: 30px !important;
+        position: relative;
+        width: 90%;
+        min-height: 1800px;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-areas: 
+            "box1"
+            "box2"
+            "box3" 
+            "box4"
+            "box5"
+            "box6"
+            "box7"
+        ;
+        grid-column-gap: 10px;
+        grid-row-gap: 10px;
+        padding-bottom: 30px;
+    }
+    div.container .box{
+        position: relative;
+        width: 100%;
+        min-height: 250px;
+    }
+}
+@media screen and (max-width:430px){
+    div.container .box{
+        min-height: 200px;
+    }
+    div.container .box img{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        object-fit: cover;
+    }
+}
